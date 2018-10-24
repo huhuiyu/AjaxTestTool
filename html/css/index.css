@@ -1,0 +1,31 @@
+span {
+  color: blue;
+}
+.text {
+  color: black;
+}
+.key {
+  color: red;
+}
+.string {
+  color: fuchsia;
+}
+.number {
+  color: green;
+}
+.boolean {
+  color: maroon;
+}
+.null {
+  color: gray;
+}
+
+.div-main {
+  width: 80%;
+  margin: 0px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.w100 {
+  width: 100%;
+}

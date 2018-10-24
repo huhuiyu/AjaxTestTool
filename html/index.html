@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ajax测试工具（服务器端需要允许跨域）</title>
+  <link rel="shortcut icon" href="logo.png" type="image/png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="h1 text-center text-primary" v-html="welcome"></div>
+    <div class="div-main">
+      <div class="w100">
+        <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon">服务器地址</span>
+            <input type="text" class="form-control" v-model="server">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">&nbsp;&nbsp;&nbsp;请求路径</span>
+            <input type="text" class="form-control" placeholder="请输入请求路径" v-model="path">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">&nbsp;&nbsp;&nbsp;请求参数</span>
+            <textarea rows="3" class="form-control" placeholder="请输入请求参数" v-model="sendinfo"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="text-center w100">
+        <button type="button" class="btn btn-primary" v-on:click="send">发送</button>
+      </div>
+      <div class="w100">{{geturl}}</div>
+      <div class="w100">
+        原始应答结果：{{result}}
+      </div>
+      <div class="w100">
+        <pre v-html="fresult"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/myjson.js"></script>
+  <script src="js/data-service.js"></script>
+  <script src="js/vue.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
