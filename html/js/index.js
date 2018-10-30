@@ -10,7 +10,10 @@ $(function() {
       sendinfo: '{}',
       result: '',
       fresult: '',
-      geturl: ''
+      geturl: '',
+      imageCodeUrl: '',
+      ts: '',
+      token: ''
     },
     methods: {
       send: function() {
@@ -23,11 +26,17 @@ $(function() {
           dataService.send(this.path, sendData, function(data) {
             app.$data.result = data;
             app.$data.fresult = myjson.formatJson(JSON.stringify(data));
+            app.$data.token = dataService.loadToken();
           });
         } catch (error) {
           app.$data.result = '处理发生错误：' + error;
         }
+      },
+      getImage: function() {
+        app.$data.ts = new Date().getTime();
       }
     }
   });
+
+  app.$data.token = dataService.loadToken();
 });

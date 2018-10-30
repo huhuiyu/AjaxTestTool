@@ -29,6 +29,17 @@
             <span class="input-group-addon">&nbsp;&nbsp;&nbsp;请求参数</span>
             <textarea rows="3" class="form-control" placeholder="请输入请求参数" v-model="sendinfo"></textarea>
           </div>
+          <div class="input-group">
+            <span class="input-group-addon">&nbsp;&nbsp;&nbsp;图片地址</span>
+            <input type="text" class="form-control" v-model="imageCodeUrl">
+            <span class="input-group-addon btn btn-default" v-on:click="getImage">刷新</span>
+          </div>
+          <div class="text-info">
+            token信息：{{token}}
+          </div>
+          <div>
+            <span> 图片校验码：</span><img :src="server+imageCodeUrl+'?token='+token+'&ts='+ts" alt="">
+          </div>
         </div>
       </div>
       <div class="text-center w100">

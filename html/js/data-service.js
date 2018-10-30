@@ -21,6 +21,8 @@ $(function() {
     sessionStorage.removeItem(tokenKey);
   }
 
+  dataService.loadToken = loadToken;
+
   dataService.setBaseUrl = function(url) {
     dataService.baseurl = url;
   };
@@ -78,7 +80,7 @@ $(function() {
     if (!params) {
       params = {};
     }
-    params.servertoken = loadToken();
+    params.token = loadToken();
     if (!cb) {
       cb = emptyfn;
     }
@@ -97,8 +99,8 @@ $(function() {
       contentType: false,
       processData: false,
       success: function(data) {
-        if (data && data.servertoken) {
-          saveToken(data.servertoken);
+        if (data && data.token) {
+          saveToken(data.token);
         }
         cb(data);
       },
