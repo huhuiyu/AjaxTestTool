@@ -31,14 +31,22 @@
           </div>
           <div class="input-group">
             <span class="input-group-addon">&nbsp;&nbsp;&nbsp;图片地址</span>
-            <input type="text" class="form-control" v-model="imageCodeUrl">
+            <input type="text" class="form-control" placeholder="请输入图片校验码url" v-model="imageCodeUrl">
             <span class="input-group-addon btn btn-default" v-on:click="getImage">刷新</span>
           </div>
-          <div class="text-info">
-            token信息：{{token}}
+          <div class="text-info h3">
+            <span> 图片校验码：</span>
+            <img :src="server+imageCodeUrl+'?token='+token+'&ts='+ts" alt="" v-on:click="getImage">
+            <span> token信息：{{token}}</span>
           </div>
-          <div>
-            <span> 图片校验码：</span><img :src="server+imageCodeUrl+'?token='+token+'&ts='+ts" alt="">
+          <div class="input-group">
+            <span class="input-group-addon">&nbsp;&nbsp;&nbsp;上传地址</span>
+            <input type="text" class="form-control" placeholder="请输入文件上传url" v-model="upfileurl">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">&nbsp;&nbsp;&nbsp;上传文件</span>
+            <input type="file" class="form-control" placeholder="请选择文件" id="upfile">
+            <span class="input-group-addon btn btn-default" v-on:click="upload">上传</span>
           </div>
         </div>
       </div>

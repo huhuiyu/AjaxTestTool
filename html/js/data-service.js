@@ -61,19 +61,6 @@ $(function() {
         });
       }
     });
-    // .done(function(data) {
-    //   if (data && data.servertoken) {
-    //     saveToken(data.servertoken);
-    //   }
-    //   cb(data);
-    // })
-    // .fail(function(xhr, status, errorThrown) {
-    //   cb({
-    //     success: false,
-    //     code: 500,
-    //     message: '处理数据发生错误:' + errorThrown
-    //   });
-    // });
   };
 
   dataService.saveFile = function(url, file, params, cb) {
@@ -113,37 +100,4 @@ $(function() {
       }
     });
   };
-
-  // dataService.sendText = function(url, params, cb) {
-  //   if (!params) {
-  //     params = {};
-  //   }
-  //   params.servertoken = loadToken();
-  //   if (!cb) {
-  //     cb = emptyfn;
-  //   }
-
-  //   $.ajax({
-  //     url: dataService.baseurl + url,
-  //     data: params,
-  //     type: 'POST'
-  //   })
-  //     .done(function(data) {
-  //       if (data && data.servertoken) {
-  //         saveToken(data.servertoken);
-  //       }
-  //       cb({
-  //         message: data,
-  //         success: true,
-  //         code: 200
-  //       });
-  //     })
-  //     .fail(function(xhr, status, errorThrown) {
-  //       cb({
-  //         success: false,
-  //         code: 500,
-  //         message: '处理数据发生错误:' + errorThrown
-  //       });
-  //     });
-  // };
 });

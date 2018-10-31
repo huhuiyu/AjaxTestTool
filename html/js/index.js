@@ -13,7 +13,8 @@ $(function() {
       geturl: '',
       imageCodeUrl: '',
       ts: '',
-      token: ''
+      token: '',
+      upfileurl: ''
     },
     methods: {
       send: function() {
@@ -34,6 +35,17 @@ $(function() {
       },
       getImage: function() {
         app.$data.ts = new Date().getTime();
+      },
+      upload: function() {
+        dataService.setBaseUrl(app.$data.server);
+        var sendData = JSON.parse(this.sendinfo);
+        dataService.saveFile(this.upfileurl, $('#upfile'), sendData, function(
+          data
+        ) {
+          app.$data.result = data;
+          app.$data.fresult = myjson.formatJson(JSON.stringify(data));
+          app.$data.token = dataService.loadToken();
+        });
       }
     }
   });
