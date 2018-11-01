@@ -92,10 +92,11 @@ $(function() {
         cb(data);
       },
       error: function(data) {
+        console.log(data);
         cb({
           success: false,
           code: 500,
-          message: '处理数据发生错误:' + JSON.stringify(data)
+          message: '上传失败，请检查是否超过限制大小'
         });
       }
     });
